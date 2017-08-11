@@ -62,6 +62,7 @@ pipeline {
         }
         stage('Parallel Stages') {
             steps {
+                parallel (
                 "NexB Scan": {
                     sh 'rm -rf .repo'
                     doNexbScanning()
