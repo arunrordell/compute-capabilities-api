@@ -60,30 +60,25 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube Analysis') {
+        stage('Parallel Stages') {
             steps {
-                doSonarAnalysis()
-            }
-        }
-        stage('Third Party Audit') {
-            steps {
-                doThirdPartyAudit()
-            }
-        }
-        stage('PasswordScan') {
-            steps {
-                doPwScan()
-            }
-        }
-        stage('Github Release') {
-            steps {
-                githubRelease()
-            }
-        }
-        stage('NexB Scan') {
-            steps {
-                sh 'rm -rf .repo'
-                doNexbScanning()
+                "NexB Scan": {
+                    sh 'rm -rf .repo'
+                    doNexbScanning()
+                },
+                "SonarQube Analysis": {
+                    doSonarAnalysis()
+                },
+                "Third Party Audit": {
+                    doThirdPartyAudit()
+                },
+                "PasswordScan": {
+                    doPwScan()
+                },
+                "Github Release": {
+                    githubRelease()
+                }
+                )
             }
         }
     }
