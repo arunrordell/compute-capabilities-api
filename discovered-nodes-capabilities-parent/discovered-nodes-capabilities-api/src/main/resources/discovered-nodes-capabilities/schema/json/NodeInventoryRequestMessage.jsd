@@ -10,12 +10,12 @@
     "messageProperties": {
       "$ref" : "includes/MessageProperties.jsd"
     },
-    "symphonyUUID": {
+    "symphonyUuid": {
       "type": "string"
     }
   },
   "required": [
     "messageProperties",
-    "symphonyUUID"
+    "symphonyUuid"
   ]
 }
