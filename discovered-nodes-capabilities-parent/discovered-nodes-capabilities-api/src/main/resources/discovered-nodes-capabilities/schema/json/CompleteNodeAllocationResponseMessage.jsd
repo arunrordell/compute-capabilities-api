@@ -14,7 +14,9 @@
        "status": {
            "enum": [
                "SUCCESS",
-               "FAILED"
+               "FAILED",
+               "PROVISIONING_IN_PROGRESS",
+               "PROVISIONING_FAILED"
            ],
            "type": "string"
        },
